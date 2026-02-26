@@ -1,0 +1,15 @@
+:root {
+  --primary-color: #2563eb; /* Основний колір акцентів */
+  --text-color: #1e293b;    /* Колір основного тексту */
+  --bg-color: #f8fafc;      /* Колір фону */
+}
+
+  body {
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     font-family: sans-serif;
+   }
+   
+   h1 {
+     color: var(--primary-color);
+   }
