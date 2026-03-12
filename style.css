@@ -6,31 +6,56 @@
 /* Відступи для кращого відображення контенту на мобільних  */
 main {
   padding: 0 15px;
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 :root {
-  --primary-color: #2563eb; /* Основний колір акцентів */
-  --text-color: #1e293b;    /* Колір основного тексту */
-  --bg-color: #f8fafc;      /* Колір фону */
+  --primary-color: #2563eb; 
+  --text-color: #1e293b;    
+  --bg-color: #f8fafc;    
 }
 
-  body {
-     background-color: var(--bg-color);
-     color: var(--text-color);
-     font-family: sans-serif;
-   }
-   
-   h1 {
-     color: var(--primary-color);
-   }
+html {
+  font-size: 16px;
+}
 
-   nav ul {
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #222;
+  background: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--primary-color);
+}
+   
+  nav {
+    background: #333;
+  }
+
+  nav a {
+    color: white;
+  }
+  nav ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
   padding: 0;
-}
+  }
 
 @media (min-width: 768px) {
   header {
@@ -69,4 +94,10 @@ main {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
 }
