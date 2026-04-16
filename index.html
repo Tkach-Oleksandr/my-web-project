@@ -12,55 +12,67 @@
 </head>
 
 <body>
+        <ul id="projects-list"></ul>
+            <header>
+                <h1>Ткач Олександр</h1>
+                <img src="decor.png" class="project-icon" alt="Декор">
+            </header>
 
-<header>
-    <h1>Ткач Олександр</h1>
-    <img src="decor.png" alt="">
-</header>
+                <nav>
+                    <ul>
+                        <li><a href="#about">Про мене</a></li>
+                        <li><a href="#skills">Навички</a></li>
+                        <li><a href="#contacts">Контакти</a></li>
+                    </ul>
+                </nav>
 
-<nav>
-    <ul>
-        <li><a href="#about">Про мене</a></li>
-        <li><a href="#skills">Навички</a></li>
-        <li><a href="#contacts">Контакти</a></li>
-    </ul>
-</nav>
+                    <main>
 
-<main>
+                        <section id="about">
+                            <h2>Про мене</h2>
 
-    <section id="about">
-        <h2>Про мене</h2>
+                            <article>
+                                <p>
+                                    Я студент спеціальності автоматизації та комп'ютерно-інтегрованих технологій.
+                                    Цікавлюсь робототехнікою, електронікою та розробкою програмних систем.
+                                </p>
+                            </article>
 
-        <article>
-            <p>
-                Я студент спеціальності автоматизації та комп'ютерно-інтегрованих технологій.
-                Цікавлюсь робототехнікою, електронікою та розробкою програмних систем.
-            </p>
-        </article>
+                        </section>
 
-    </section>
+                        <section id="skills">
+                            <h2>Навички</h2>
 
-    <section id="skills">
-        <h2>Навички</h2>
+                            <article>
+                                <ul>
+                                    <li>HTML та базовий CSS</li>
+                                    <li>C# та WPF</li>
+                                    <li>Arduino / ESP32</li>
+                                    <li>3D моделювання (AutoCAD)</li>
+                                </ul>
+                            </article>
 
-        <article>
-            <ul>
-                <li>HTML та базовий CSS</li>
-                <li>C# та WPF</li>
-                <li>Arduino / ESP32</li>
-                <li>3D моделювання (AutoCAD)</li>
-            </ul>
-        </article>
+                        </section>
 
-    </section>
+                    </main>
 
-</main>
+                        <footer id="contacts">
+                            <button id="theme-toggle">Змінити тему</button>
+                            <button id="open-modal">Контакти</button>
 
-<footer id="contacts">
-    <h2>Контакти</h2>
-    <p>Email: tkach.oleksandr1123@vu.cdu.edu.ua</p>
-    <p>© 2026 Ткач Олександр</p>
-</footer>
-
+                        <div id="modal" class="modal">
+                        <div class="modal-content">
+                            <button id="close-modal">Закрити</button>
+                            <form id="contact-form">
+                            <input type="text" id="user-name" placeholder="Ваше ім'я">
+                            <button type="submit">Надіслати</button>
+                            </form>
+                        </div>
+                        </div>
+                            <h2>Контакти</h2>
+                            <p>Email: tkach.oleksandr1123@vu.cdu.edu.ua</p>
+                            <p>© 2026 Ткач Олександр</p>
+                        </footer>
+    <script src="script.js"></script>
 </body>
 </html>
