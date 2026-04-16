@@ -97,6 +97,12 @@ h1 {
   object-fit: cover; 
 }
 
+.project-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -120,3 +126,5 @@ button:focus {
 .modal.is-open {
   display: block;
 }
+
+
