@@ -182,3 +182,9 @@ body.dark-theme .post h3 {
 body.dark-theme .post p {
     color: #ccc;
 }
+
+.post {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+}

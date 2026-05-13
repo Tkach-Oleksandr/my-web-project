@@ -119,48 +119,56 @@ function createPost(post) {
   `;
 }
 
-// ЧАСТИНА 5. ПОВНИЙ КОНТРОЛЬ ПОТОКУ
-// ────────────────────────────────────────
+let allPosts = []; // Глобальний масив для постів
 
 async function loadPosts() {
   const loading = document.querySelector('#loading');
-  const container = document.querySelector('#posts-container');
 
   try {
-    // Виконуємо запит (виправлено посилання від зайвих символів)
+    // 1. Надсилаємо запит
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-    // Перевірка статусу відповіді (наприклад, 404 або 500)
+    // 2. Перевіряємо успішність (статус 200-299)
     if (!response.ok) {
-      throw new Error('Server error');
+      throw new Error('Помилка сервера');
     }
 
-    // Перетворення відповіді у формат JSON
+    // 3. Декодуємо JSON у масив об'єктів
     const data = await response.json();
 
-    // Формуємо HTML-код для перших 5 постів
-    const html = data.slice(0, 5)
-      .map(post => `
-        <div class="post">
-          <h3>${post.title}</h3>
-          <p>${post.body}</p>
-        </div>
-      `)
-      .join('');
+    // 4. Зберігаємо перші 10 постів у нашу змінну
+    allPosts = data.slice(0, 10);
 
-    // Виводимо дані на сторінку
-    container.innerHTML = html;
+    // 5. Викликаємо функцію рендерингу (її ми створимо в наступній частині)
+    renderPosts(allPosts);
 
-    // Ховаємо статус завантаження тільки після успішного рендерингу
+    // 6. Ховаємо індикатор завантаження
     loading.style.display = 'none';
 
   } catch (error) {
-    // Обробка будь-яких помилок (мережевих або серверних)
-    console.error("Деталі помилки:", error);
-    loading.textContent = 'Помилка завантаження даних';
-    loading.style.color = '#ff4d4d'; // Додамо акцент на помилці
+    // Обробка помилок (немає інтернету, сервер лежить тощо)
+    console.error("Сталася помилка:", error);
+    loading.textContent = 'Помилка завантаження. Спробуйте оновити сторінку.';
+    loading.style.color = 'red';
   }
 }
 
-// Запуск функції
+// Запускаємо процес завантаження
 loadPosts();
+
+
+
+function renderPosts(list) {
+  if (!container) return;
+
+  const html = list
+    .map(post => `
+      <div class="post">
+        <h3>${post.title}</h3>
+        <p>${post.body}</p>
+      </div>
+    `)
+    .join('');
+
+  container.innerHTML = html;
+}
