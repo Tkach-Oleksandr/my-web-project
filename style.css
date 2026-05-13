@@ -127,4 +127,58 @@ button:focus {
   display: block;
 }
 
+/* Секція постів */
+#posts-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
 
+/* Стиль кожної картки поста */
+.post {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ефект при наведенні (для інтерактивності) */
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+/* Заголовок поста */
+.post h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize; /* API повертає заголовки з маленької літери */
+}
+
+/* Текст поста */
+.post p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Стиль для темної теми (якщо ви її реалізували) */
+body.dark-theme .post {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-theme .post h3 {
+    color: #fff;
+}
+
+body.dark-theme .post p {
+    color: #ccc;
+}

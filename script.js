@@ -106,3 +106,61 @@ if (searchInput) {
   });
 }
 
+// Знаходимо контейнер, куди будемо вставляти пости
+const postsContainer = document.querySelector('#posts-container');
+
+// Функція для створення HTML-розмітки одного поста
+function createPost(post) {
+  return `
+    <div class="post">
+      <h3>${post.title}</h3>
+      <p>${post.body}</p>
+    </div>
+  `;
+}
+
+// ЧАСТИНА 5. ПОВНИЙ КОНТРОЛЬ ПОТОКУ
+// ────────────────────────────────────────
+
+async function loadPosts() {
+  const loading = document.querySelector('#loading');
+  const container = document.querySelector('#posts-container');
+
+  try {
+    // Виконуємо запит (виправлено посилання від зайвих символів)
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+    // Перевірка статусу відповіді (наприклад, 404 або 500)
+    if (!response.ok) {
+      throw new Error('Server error');
+    }
+
+    // Перетворення відповіді у формат JSON
+    const data = await response.json();
+
+    // Формуємо HTML-код для перших 5 постів
+    const html = data.slice(0, 5)
+      .map(post => `
+        <div class="post">
+          <h3>${post.title}</h3>
+          <p>${post.body}</p>
+        </div>
+      `)
+      .join('');
+
+    // Виводимо дані на сторінку
+    container.innerHTML = html;
+
+    // Ховаємо статус завантаження тільки після успішного рендерингу
+    loading.style.display = 'none';
+
+  } catch (error) {
+    // Обробка будь-яких помилок (мережевих або серверних)
+    console.error("Деталі помилки:", error);
+    loading.textContent = 'Помилка завантаження даних';
+    loading.style.color = '#ff4d4d'; // Додамо акцент на помилці
+  }
+}
+
+// Запуск функції
+loadPosts();
