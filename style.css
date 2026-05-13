@@ -188,3 +188,37 @@ body.dark-theme .post p {
   padding: 15px;
   margin-bottom: 10px;
 }
+
+.post {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05); /* Легкий фон для темної теми */
+}
+
+.post h3 {
+    margin-top: 0;
+    color: #007bff;
+    text-transform: capitalize;
+}
+
+#posts-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+body.dark-theme .post, 
+body.dark-theme .project-card {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #eee;
+}
+
+body.dark-theme h2, 
+body.dark-theme h3 {
+  color: #ffffff;
+}
